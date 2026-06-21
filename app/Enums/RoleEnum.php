@@ -13,6 +13,7 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
     case ADMIN = 'Admin';
     case DOCTOR = 'Doctor';
     case RECEPTIONIST = 'Receptionist';
+    case PATIENT = 'Patient';
 
     public function getLabel(): string
     {
@@ -20,6 +21,7 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
             self::ADMIN => 'Administrator',
             self::DOCTOR => 'Doctor',
             self::RECEPTIONIST => 'Receptionist',
+            self::PATIENT => 'Patient',
         };
     }
 
@@ -29,6 +31,7 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
             self::ADMIN => 'Has full access to the system.',
             self::DOCTOR => 'Can manage patients and appointments.',
             self::RECEPTIONIST => 'Can register patients and manage appointments.',
+            self::PATIENT => 'Can view their own medical records and schedule appointments.',
         };
     }
 
@@ -38,6 +41,7 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
             self::ADMIN => Heroicon::ShieldCheck,
             self::DOCTOR => Heroicon::AcademicCap,
             self::RECEPTIONIST => Heroicon::CalendarDays,
+            self::PATIENT => Heroicon::User,
         })->value;
     }
 
@@ -46,7 +50,8 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
         return match ($this) {
             self::ADMIN => 'danger',
             self::DOCTOR => 'success',
-            self::RECEPTIONIST => 'primary',
+            self::RECEPTIONIST => 'secondary',
+            self::PATIENT => 'primary',
         };
     }
 }
