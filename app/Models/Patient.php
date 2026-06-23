@@ -16,4 +16,13 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'gender' => \App\Enums\GenderEnum::class
+        ];
+    }
 }
