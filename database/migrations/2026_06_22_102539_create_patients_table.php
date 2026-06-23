@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Enums\GenderEnum;
 return new class extends Migration
 {
     /**
@@ -19,7 +19,7 @@ return new class extends Migration
             ->nullOnDelete();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('gender');
+            $table->char('gender',12)->default(GenderEnum::DEFAULT->value)->comment('Gender of the patient');
             $table->date('birthdate');
             $table->string('address');
             $table->string('contact_number');
