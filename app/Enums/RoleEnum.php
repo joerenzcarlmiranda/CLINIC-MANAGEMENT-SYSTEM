@@ -8,7 +8,7 @@ use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Filament\Support\Icons\Heroicon;
 
-enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
+enum RoleEnum: string implements HasColor, HasDescription, HasIcon, HasLabel
 {
     case ADMIN = 'Admin';
     case DOCTOR = 'Doctor';
@@ -37,7 +37,7 @@ enum RoleEnum: string implements HasLabel, HasColor, HasIcon, HasDescription
 
     public function getIcon(): string
     {
-        return 'heroicon-o-' . (match ($this) {
+        return 'heroicon-o-'.(match ($this) {
             self::ADMIN => Heroicon::ShieldCheck,
             self::DOCTOR => Heroicon::AcademicCap,
             self::RECEPTIONIST => Heroicon::CalendarDays,

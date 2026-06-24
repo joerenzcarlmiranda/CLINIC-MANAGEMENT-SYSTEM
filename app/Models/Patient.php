@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Enums\GenderEnum;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Patient extends Model
 {
@@ -17,12 +18,11 @@ class Patient extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function casts(): array
     {
         return [
             'id' => 'string',
-            'gender' => \App\Enums\GenderEnum::class
+            'gender' => GenderEnum::class,
         ];
     }
 }

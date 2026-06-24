@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\Patients\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class PatientInfolist
 {
@@ -31,7 +31,7 @@ class PatientInfolist
 
                             TextEntry::make('gender')
                                 ->label('Gender')
-                                ->badge(),       
+                                ->badge(),
 
                             TextEntry::make('birthdate')
                                 ->label('Birthdate'),
@@ -56,7 +56,7 @@ class PatientInfolist
 
                             TextEntry::make('user.email')
                                 ->label('Patient Email'),
-                            
+
                             TextEntry::make('user.password')
                                 ->label('Patient Password')
                                 ->hidden()
