@@ -1,9 +1,10 @@
 <?php
 
+use App\Enums\GenderEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\GenderEnum;
+
 return new class extends Migration
 {
     /**
@@ -14,12 +15,12 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignId('user_id')
-            ->nullable()
-            ->constrained()
-            ->nullOnDelete();
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
             $table->string('first_name');
             $table->string('last_name');
-            $table->char('gender',12)->default(GenderEnum::DEFAULT->value)->comment('Gender of the patient');
+            $table->char('gender', 12)->default(GenderEnum::DEFAULT->value)->comment('Gender of the patient');
             $table->date('birthdate');
             $table->string('address');
             $table->string('contact_number');

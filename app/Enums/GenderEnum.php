@@ -7,11 +7,12 @@ use Filament\Support\Contracts\HasDescription;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Filament\Support\Icons\Heroicon;
-enum GenderEnum : string implements HasLabel, HasColor, HasIcon, HasDescription
+
+enum GenderEnum: string implements HasColor, HasDescription, HasIcon, HasLabel
 {
     const DEFAULT = self::OTHER;
     case MALE = 'Male';
-    case FEMALE ='Female';
+    case FEMALE = 'Female';
     case OTHER = 'Other';
 
     public function getLabel(): string
@@ -34,7 +35,7 @@ enum GenderEnum : string implements HasLabel, HasColor, HasIcon, HasDescription
 
     public function getIcon(): string
     {
-        return 'heroicon-o-' . (match ($this) {
+        return 'heroicon-o-'.(match ($this) {
             self::MALE => Heroicon::User,
             self::FEMALE => Heroicon::User,
             self::OTHER => Heroicon::User,
@@ -49,6 +50,4 @@ enum GenderEnum : string implements HasLabel, HasColor, HasIcon, HasDescription
             self::OTHER => 'secondary',
         };
     }
-
-
 }
