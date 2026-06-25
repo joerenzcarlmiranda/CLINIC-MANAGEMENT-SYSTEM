@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Patients\Tables;
+namespace App\Filament\Resources\Doctors\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,36 +9,33 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class PatientsTable
+class DoctorsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->label('Patient ID')
+                    ->label('Doctor ID')
                     ->searchable(),
                 TextColumn::make('first_name')
                     ->label('Full Name')
-                    // Concatenate the output visually
                     ->formatStateUsing(fn ($record) => "{$record->first_name} {$record->last_name}")
-                    // Make both individual fields searchable
                     ->searchable(['first_name', 'last_name']),
                 TextColumn::make('gender')
                     ->badge()
                     ->searchable(),
-                TextColumn::make('birthdate')
-                    ->date()
-                    ->sortable(),
-                TextColumn::make('address')
+                TextColumn::make('specialization')
+                    ->searchable()
+                    ->badge('success'),
+                TextColumn::make('license_number')
                     ->searchable(),
                 TextColumn::make('contact_number')
                     ->searchable(),
-                TextColumn::make('emergency_contact_name')
-                    ->hidden()
+                TextColumn::make('address')
                     ->searchable(),
-                TextColumn::make('emergency_contact_number')
-                    ->hidden()
+                TextColumn::make('status')
+                    ->badge(fn ($state) => $state === 'active' ? 'success' : 'danger')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
