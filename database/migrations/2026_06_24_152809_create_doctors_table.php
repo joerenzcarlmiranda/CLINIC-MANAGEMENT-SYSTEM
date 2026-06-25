@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\GenderEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ return new class extends Migration
                 ->nullOnDelete();
             $table->string('first_name');
             $table->string('last_name');
-            $table->char('gender', 12)->default(App\Enums\GenderEnum::DEFAULT->value)->comment('Gender of the patient');
+            $table->char('gender', 12)->default(GenderEnum::DEFAULT->value)->comment('Gender of the patient');
             $table->string('specialization');
             $table->string('license_number');
             $table->string('contact_number');
