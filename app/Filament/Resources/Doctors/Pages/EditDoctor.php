@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources\Doctors\Pages;
 
+use App\Actions\CreateorUpdateDoctorAction;
 use App\Filament\Resources\Doctors\DoctorResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
-use App\Models\Doctor;
-use App\Actions\CreateorUpdateDoctorAction;
 use Illuminate\Database\Eloquent\Model;
 
 class EditDoctor extends EditRecord

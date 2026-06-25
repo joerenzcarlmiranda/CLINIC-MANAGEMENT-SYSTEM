@@ -19,7 +19,7 @@ class ListDoctors extends ListRecords
         ];
     }
 
-        public function getTabs(): array
+    public function getTabs(): array
     {
         return [
             'all' => Tab::make('All Doctors'),

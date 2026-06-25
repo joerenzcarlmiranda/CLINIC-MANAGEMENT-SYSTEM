@@ -18,14 +18,14 @@ class CreateorUpdateDoctorAction
         return DB::transaction(function () use ($data, $doctor) {
             // 1. Prepare User Data
             $userData = [
-                'name' => trim(($data['first_name'] ?? '') . ' ' . ($data['last_name'] ?? '')),
+                'name' => trim(($data['first_name'] ?? '').' '.($data['last_name'] ?? '')),
             ];
 
-            if (!empty($data['email'])) {
+            if (! empty($data['email'])) {
                 $userData['email'] = $data['email'];
             }
 
-            if (!empty($data['password'])) {
+            if (! empty($data['password'])) {
                 $userData['password'] = $data['password']; // Laravel casts automatically hash this if configured
             }
 

@@ -54,7 +54,7 @@ class PatientInfolist
                         ->schema([
                             TextEntry::make('user.name')
                                 ->label('Patient Name')
-                                ->hidden(fn ($record) => empty($record?->user?->name)), 
+                                ->hidden(fn ($record) => empty($record?->user?->name)),
 
                             TextEntry::make('user.email')
                                 ->label('Patient Email'),

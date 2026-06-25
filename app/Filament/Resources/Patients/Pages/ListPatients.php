@@ -10,7 +10,6 @@ use Filament\Schemas\Components\Tabs\Tab; // FIXED: Correct Filament Tab namespa
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
-
 class ListPatients extends ListRecords
 {
     protected static string $resource = PatientResource::class;
@@ -47,5 +46,5 @@ class ListPatients extends ListRecords
         }
 
         return $tabs;
-    }   
+    }
 }
