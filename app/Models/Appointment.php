@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Enums\AppointmentStatusEnum;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
 
     protected $guarded = [];
 
@@ -27,11 +28,13 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
+
     public function casts(): array
     {
         return [
+            'id' => 'string',
             'appointment_date' => 'date',
-            'appointment_time' => 'date',
+            'appointment_time' => 'datetime',
             'status' => AppointmentStatusEnum::class,
         ];
     }

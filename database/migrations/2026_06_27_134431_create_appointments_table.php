@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignuuid('patient_id')
                 ->nullable()
                 ->constrained('patients')
@@ -23,7 +23,7 @@ return new class extends Migration
                 ->constrained('doctors')
                 ->nullOnDelete();
             $table->date('appointment_date');
-            $table->date('appointment_time');
+            $table->time('appointment_time');
             $table->char('status', 20)->default(AppointmentStatusEnum::DEFAULT->value)->comment('Status of the appointment');
             $table->string('reason_for_visit');
             $table->string('notes')->nullable();
