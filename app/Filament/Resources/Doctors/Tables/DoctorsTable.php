@@ -15,9 +15,12 @@ class DoctorsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
+                TextColumn::make('display_id')
                     ->label('Doctor ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->copyable()
+                    ->badge()
+                    ->color('gray'),
                 TextColumn::make('first_name')
                     ->label('Full Name')
                     ->formatStateUsing(fn ($record) => "{$record->first_name} {$record->last_name}")

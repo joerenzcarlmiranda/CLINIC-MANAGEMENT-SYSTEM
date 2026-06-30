@@ -19,6 +19,11 @@ class AppointmentInfolist
                 ->schema([
                     Grid::make(4)
                         ->schema([
+                            TextEntry::make('display_id')
+                                ->label('Appointment ID')
+                                ->badge()
+                                ->color('gray'),
+
                             TextEntry::make('appointment_date')
                                 ->date(),
 
@@ -39,6 +44,11 @@ class AppointmentInfolist
                     Section::make('Patient')
                         ->icon('heroicon-o-user')
                         ->schema([
+                            TextEntry::make('patient.display_id')
+                                ->label('Patient ID')
+                                ->badge()
+                                ->color('gray'),
+
                             TextEntry::make('patient.full_name')
                                 ->label('Patient'),
 
@@ -58,6 +68,11 @@ class AppointmentInfolist
                     Section::make('Doctor')
                         ->icon('heroicon-o-user-circle')
                         ->schema([
+                            TextEntry::make('doctor.display_id')
+                                ->label('Doctor ID')
+                                ->badge()
+                                ->color('gray'),
+
                             TextEntry::make('doctor.full_name'),
 
                             TextEntry::make('doctor.specialization'),

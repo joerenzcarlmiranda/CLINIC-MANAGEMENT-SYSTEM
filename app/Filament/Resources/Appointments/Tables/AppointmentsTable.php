@@ -18,15 +18,28 @@ class AppointmentsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
+                TextColumn::make('display_id')
                     ->label('Appointment ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->copyable()
+                    ->badge()
+                    ->color('gray'),
                 TextColumn::make('patient.full_name')
                     ->label('Patient Name')
-                    ->searchable(),
+                    ->searchable(query: function ($query, string $search) {
+                        $query->orWhereHas('patient', fn ($q) => $q
+                            ->where('first_name', 'like', "%{$search}%")
+                            ->orWhere('last_name', 'like', "%{$search}%")
+                        );
+                    }),
                 TextColumn::make('doctor.full_name')
                     ->label('Doctor Name')
-                    ->searchable(),
+                    ->searchable(query: function ($query, string $search) {
+                        $query->orWhereHas('doctor', fn ($q) => $q
+                            ->where('first_name', 'like', "%{$search}%")
+                            ->orWhere('last_name', 'like', "%{$search}%")
+                        );
+                    }),
                 TextColumn::make('appointment_date')
                     ->date('F j, Y')
                     ->searchable(),
@@ -40,7 +53,7 @@ class AppointmentsTable
                 //
             ])
             ->recordActions([
-                
+
                 // Confirm — visible when Pending
                 Action::make('confirm')
                     ->label('Confirm')

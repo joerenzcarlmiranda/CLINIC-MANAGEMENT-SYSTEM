@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Concerns\HasPrefixedId;
 use App\Enums\AppointmentStatusEnum;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasPrefixedId, HasUuids;
+
+    protected string $idPrefix = 'APTM';
 
     protected $guarded = [];
 
