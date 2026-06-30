@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Appointments\Pages;
 
+use App\Actions\CreateAppointmentAction;
 use App\Filament\Resources\Appointments\AppointmentResource;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Notifications\Notification;
-use App\Actions\CreateAppointmentAction;
 
 class CreateAppointment extends CreateRecord
 {
@@ -14,10 +14,9 @@ class CreateAppointment extends CreateRecord
 
     protected function handleRecordCreation(array $data): Model
     {
-        try{
+        try {
             return app(CreateAppointmentAction::class)->execute($data);
-        }catch (\DomainException $e)
-        {
+        } catch (\DomainException $e) {
             Notification::make()
                 ->title('Schedule Conflict')
                 ->body($e->getMessage())

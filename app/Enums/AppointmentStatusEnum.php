@@ -60,4 +60,22 @@ enum AppointmentStatusEnum: string implements HasColor, HasDescription, HasIcon,
             self::NoShow => 'gray',
         };
     }
+
+    /**
+     * Returns the allowed next statuses from the current status.
+     * Terminal states (Completed, Cancelled, NoShow) return an empty array.
+     */
+    public function getNextActions(): array
+    {
+        return match ($this) {
+            self::Pending => [self::Confirmed, self::Cancelled, self::NoShow],
+            self::Confirmed => [self::Completed, self::Cancelled, self::NoShow],
+            default => [],
+        };
+    }
+
+    public function isTerminal(): bool
+    {
+        return in_array($this, [self::Completed, self::Cancelled, self::NoShow]);
+    }
 }

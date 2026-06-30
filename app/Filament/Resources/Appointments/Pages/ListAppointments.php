@@ -5,8 +5,8 @@ namespace App\Filament\Resources\Appointments\Pages;
 use App\Enums\AppointmentStatusEnum;
 use App\Filament\Resources\Appointments\AppointmentResource;
 use Filament\Actions\CreateAction;
-use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
 class ListAppointments extends ListRecords
