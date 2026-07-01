@@ -26,6 +26,11 @@ class Appointment extends Model
         return $this->belongsTo(Doctor::class);
     }
 
+    public function consultation()
+    {
+        return $this->hasOne(Consultation::class);
+    }
+
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
