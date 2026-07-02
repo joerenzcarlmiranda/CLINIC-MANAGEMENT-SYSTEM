@@ -27,6 +27,29 @@ class Patient extends Model
         return $this->hasMany(Appointment::class);
     }
 
+    public function consultations()
+    {
+        return $this->hasManyThrough(
+            Consultation::class,
+            Appointment::class,
+        );
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasManyThrough(
+            Prescription::class,
+            Consultation::class,
+            'id',           // consultations.id
+            'consultation_id',
+            'id',           // patients.id
+            'id',
+        )->whereIn(
+            'consultations.id',
+            $this->consultations()->select('consultations.id')
+        );
+    }
+
     public function fullName(): Attribute
     {
         return Attribute::make(
