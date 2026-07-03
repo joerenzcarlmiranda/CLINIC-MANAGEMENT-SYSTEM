@@ -19,8 +19,10 @@ class PatientInfolist
                 ->schema([
                     Grid::make(2)
                         ->schema([
-                            TextEntry::make('id')
+                            TextEntry::make('display_id')
                                 ->label('Patient ID')
+                                ->badge()
+                                ->color('gray')
                                 ->columnSpanFull(),
 
                             TextEntry::make('first_name')
