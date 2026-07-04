@@ -23,6 +23,10 @@ class ConsultationResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ClipboardDocumentList;
 
+    protected static string|\UnitEnum|null $navigationGroup = 'Medical';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Schema $schema): Schema
     {
         return ConsultationForm::configure($schema);
