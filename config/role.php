@@ -2,16 +2,18 @@
 
 return [
     'permissions' => [
-        'admin' => [
-            // admin gets all permissions — add resources here as they are defined
+
+
+        'Admin' => [
+            'patient' => ['viewAny', 'view', 'create', 'update', 'delete'],
         ],
 
-        'doctor' => [
-            // 'patient' => ['viewAny', 'view'],
+        'Doctor' => [
+            'patient' => ['viewAny', 'view', 'update'],
         ],
 
-        'receptionist' => [
-            // 'appointment' => ['viewAny', 'view'],
+        'Receptionist' => [
+            'patient' => ['viewAny', 'view', 'create', 'update'],
         ],
     ],
 ];
