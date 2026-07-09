@@ -14,10 +14,10 @@ class StatsOverviewWidget extends BaseWidget
 
     protected function getStats(): array
     {
-        $totalPatients     = Patient::count();
+        $totalPatients = Patient::count();
         $todayAppointments = Appointment::whereDate('appointment_date', today())->count();
-        $pendingCount      = Appointment::where('status', AppointmentStatusEnum::Pending)->count();
-        $completedMonth    = Appointment::where('status', AppointmentStatusEnum::Completed)
+        $pendingCount = Appointment::where('status', AppointmentStatusEnum::Pending)->count();
+        $completedMonth = Appointment::where('status', AppointmentStatusEnum::Completed)
             ->whereMonth('appointment_date', now()->month)
             ->whereYear('appointment_date', now()->year)
             ->count();

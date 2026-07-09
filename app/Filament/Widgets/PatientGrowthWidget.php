@@ -4,7 +4,6 @@ namespace App\Filament\Widgets;
 
 use App\Models\Patient;
 use Filament\Widgets\BarChartWidget;
-use Illuminate\Support\Carbon;
 
 class PatientGrowthWidget extends BarChartWidget
 {
@@ -14,8 +13,8 @@ class PatientGrowthWidget extends BarChartWidget
 
     protected int|string|array $columnSpan = [
         'default' => 1,
-        'sm'      => 2,
-        'lg'      => 2,
+        'sm' => 2,
+        'lg' => 2,
     ];
 
     public function getHeading(): string
@@ -34,16 +33,16 @@ class PatientGrowthWidget extends BarChartWidget
             ->keyBy(fn ($row) => "{$row->year}-{$row->month}");
 
         $labels = $months->map(fn ($m) => $m->format('M Y'))->toArray();
-        $data   = $months->map(fn ($m) => (int) ($counts->get("{$m->year}-{$m->month}")?->count ?? 0))->toArray();
+        $data = $months->map(fn ($m) => (int) ($counts->get("{$m->year}-{$m->month}")?->count ?? 0))->toArray();
 
         return [
             'datasets' => [
                 [
-                    'label'           => 'New Patients',
-                    'data'            => $data,
+                    'label' => 'New Patients',
+                    'data' => $data,
                     'backgroundColor' => 'rgba(34, 197, 94, 0.85)',
-                    'borderRadius'    => 6,
-                    'borderWidth'     => 0,
+                    'borderRadius' => 6,
+                    'borderWidth' => 0,
                 ],
             ],
             'labels' => $labels,
@@ -59,8 +58,8 @@ class PatientGrowthWidget extends BarChartWidget
             'scales' => [
                 'y' => [
                     'beginAtZero' => true,
-                    'ticks'       => ['stepSize' => 1],
-                    'grid'        => ['color' => 'rgba(0,0,0,0.04)'],
+                    'ticks' => ['stepSize' => 1],
+                    'grid' => ['color' => 'rgba(0,0,0,0.04)'],
                 ],
                 'x' => [
                     'grid' => ['display' => false],
