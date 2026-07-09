@@ -4,7 +4,6 @@ namespace App\Filament\Resources\Consultations\Pages;
 
 use App\Actions\CreateConsultationAction;
 use App\Filament\Resources\Consultations\ConsultationResource;
-use App\Models\Consultation;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Notifications\Notification;

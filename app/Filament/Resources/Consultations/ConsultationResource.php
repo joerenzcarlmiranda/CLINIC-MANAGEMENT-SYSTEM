@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\Consultations;
 
 use App\Filament\Resources\Consultations\Pages\CreateConsultation;
-use App\Filament\Resources\Consultations\RelationManagers\PrescriptionsRelationManager;
 use App\Filament\Resources\Consultations\Pages\EditConsultation;
 use App\Filament\Resources\Consultations\Pages\ListConsultations;
 use App\Filament\Resources\Consultations\Pages\ViewConsultation;
+use App\Filament\Resources\Consultations\RelationManagers\PrescriptionsRelationManager;
 use App\Filament\Resources\Consultations\Schemas\ConsultationForm;
 use App\Filament\Resources\Consultations\Schemas\ConsultationInfolist;
 use App\Filament\Resources\Consultations\Tables\ConsultationsTable;
