@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Prescription extends Model
 {
-    use HasFactory, HasUuids, HasPrefixedId;
+    use HasFactory, HasPrefixedId, HasUuids;
 
     protected string $idPrefix = 'PRSC';
 

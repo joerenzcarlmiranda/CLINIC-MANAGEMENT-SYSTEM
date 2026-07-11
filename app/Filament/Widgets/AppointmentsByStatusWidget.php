@@ -14,8 +14,8 @@ class AppointmentsByStatusWidget extends DoughnutChartWidget
 
     protected int|string|array $columnSpan = [
         'default' => 1,
-        'sm'      => 1,
-        'lg'      => 1,
+        'sm' => 1,
+        'lg' => 1,
     ];
 
     public function getHeading(): string
@@ -34,7 +34,7 @@ class AppointmentsByStatusWidget extends DoughnutChartWidget
         return [
             'datasets' => [
                 [
-                    'data'            => collect($statuses)->map(fn ($s) => $counts->get($s->value, 0))->toArray(),
+                    'data' => collect($statuses)->map(fn ($s) => $counts->get($s->value, 0))->toArray(),
                     'backgroundColor' => [
                         '#f59e0b', // pending   — warning
                         '#3b82f6', // confirmed — info
@@ -42,8 +42,8 @@ class AppointmentsByStatusWidget extends DoughnutChartWidget
                         '#ef4444', // cancelled — danger
                         '#6b7280', // no_show   — gray
                     ],
-                    'borderWidth'     => 0,
-                    'hoverOffset'     => 6,
+                    'borderWidth' => 0,
+                    'hoverOffset' => 6,
                 ],
             ],
             'labels' => collect($statuses)->map(fn ($s) => $s->getLabel())->toArray(),
@@ -56,7 +56,7 @@ class AppointmentsByStatusWidget extends DoughnutChartWidget
             'plugins' => [
                 'legend' => [
                     'position' => 'bottom',
-                    'labels'   => ['padding' => 16, 'usePointStyle' => true],
+                    'labels' => ['padding' => 16, 'usePointStyle' => true],
                 ],
             ],
             'cutout' => '70%',

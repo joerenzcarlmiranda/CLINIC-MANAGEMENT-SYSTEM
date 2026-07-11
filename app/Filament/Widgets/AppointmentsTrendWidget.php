@@ -14,8 +14,8 @@ class AppointmentsTrendWidget extends LineChartWidget
 
     protected int|string|array $columnSpan = [
         'default' => 1,
-        'sm'      => 2,
-        'lg'      => 3,
+        'sm' => 2,
+        'lg' => 3,
     ];
 
     public function getHeading(): string
@@ -33,20 +33,20 @@ class AppointmentsTrendWidget extends LineChartWidget
             ->pluck('count', 'date');
 
         $labels = $days->map(fn ($d) => Carbon::parse($d)->format('M j'))->toArray();
-        $data   = $days->map(fn ($d) => $counts->get($d, 0))->toArray();
+        $data = $days->map(fn ($d) => $counts->get($d, 0))->toArray();
 
         return [
             'datasets' => [
                 [
-                    'label'                => 'Appointments',
-                    'data'                 => $data,
-                    'borderColor'          => '#3b82f6',
-                    'backgroundColor'      => 'rgba(59, 130, 246, 0.08)',
-                    'borderWidth'          => 2,
+                    'label' => 'Appointments',
+                    'data' => $data,
+                    'borderColor' => '#3b82f6',
+                    'backgroundColor' => 'rgba(59, 130, 246, 0.08)',
+                    'borderWidth' => 2,
                     'pointBackgroundColor' => '#3b82f6',
-                    'pointRadius'          => 3,
-                    'tension'              => 0.4,
-                    'fill'                 => true,
+                    'pointRadius' => 3,
+                    'tension' => 0.4,
+                    'fill' => true,
                 ],
             ],
             'labels' => $labels,
@@ -63,8 +63,8 @@ class AppointmentsTrendWidget extends LineChartWidget
             'scales' => [
                 'y' => [
                     'beginAtZero' => true,
-                    'ticks'       => ['stepSize' => 1],
-                    'grid'        => ['color' => 'rgba(0,0,0,0.04)'],
+                    'ticks' => ['stepSize' => 1],
+                    'grid' => ['color' => 'rgba(0,0,0,0.04)'],
                 ],
                 'x' => [
                     'grid' => ['display' => false],

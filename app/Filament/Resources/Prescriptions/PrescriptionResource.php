@@ -47,10 +47,10 @@ class PrescriptionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => ListPrescriptions::route('/'),
+            'index' => ListPrescriptions::route('/'),
             'create' => CreatePrescription::route('/create'),
-            'view'   => ViewPrescription::route('/{record}'),
-            'edit'   => EditPrescription::route('/{record}/edit'),
+            'view' => ViewPrescription::route('/{record}'),
+            'edit' => EditPrescription::route('/{record}/edit'),
         ];
     }
 }

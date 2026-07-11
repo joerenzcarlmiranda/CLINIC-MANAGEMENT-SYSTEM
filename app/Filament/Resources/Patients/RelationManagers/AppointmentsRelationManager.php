@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources\Patients\RelationManagers;
 
-use App\Enums\AppointmentStatusEnum;
+use Filament\Actions\ViewAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Filament\Actions\ViewAction;
 
 class AppointmentsRelationManager extends RelationManager
 {
